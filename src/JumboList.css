@@ -1,0 +1,28 @@
+.jumbo-list__list {
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+	text-align: center;
+}
+
+.jumbo-list__button {
+	display: inline-block;
+	padding: 0 15px;
+	white-space: nowrap;
+	height: 40px;
+	line-height: 40px;
+	border: 2px solid coral;
+	color: coral;
+	background: #fff;
+	transition: all .3s ease;
+	cursor: pointer;
+	min-width: 100px;
+	font-size: 20px;
+	text-transform: uppercase;
+	margin: 20px 0;
+}
+
+.jumbo-list__button:hover {
+	color: #fff;
+	background: coral;
+}

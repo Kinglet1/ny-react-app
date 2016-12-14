@@ -1,0 +1,22 @@
+{
+  "name": "ny-react-app",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "create-react-app-stylus": "^1.1.1",
+    "fake-ajax": "0.0.1",
+    "jquery-mockjax": "^2.2.1",
+    "react-scripts": "0.8.4"
+  },
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts-with-stylus start",
+    "build": "react-scripts-with-stylus build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "homepage": "http://kinglet1.github.io/ny-react-app/"
+}
