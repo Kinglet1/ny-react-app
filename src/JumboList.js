@@ -13,12 +13,12 @@ class JumboList extends Component {
 
   updateData() {
     let self = this;
-    $.getJSON("api.json", (response, err) =>{
-      if (err) {
-        console.log(err);
+    $.getJSON("api.json", (response, status) =>{
+      if (status) {
+        console.log(status);
       }
       console.log(response);
-      self.setState({posts: response.posts});
+      self.setState(response);
     });
   }
 
@@ -29,7 +29,7 @@ class JumboList extends Component {
   render() {
     const list = this.state.posts.map((item) => {
       console.log(item);
-      return < Jumbo key={item.postid} post={item}/>
+      return < Jumbo key={item.postid ? item.postid : `${item.source}_${item.date}`} post={item}/>
     });
     return (
       <div className="jumbo-list">
