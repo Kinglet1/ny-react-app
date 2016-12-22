@@ -106,11 +106,11 @@ class App extends Component {
           self.setState(prevState => {
             const newPosts = self.mergePosts(prevState.posts, response.data.posts);
             const newPostsToShow = self.getPostsToShow(newPosts, prevState.lastShownId);
-            const lastPostId = newPostsToShow.slice(-1);
+            const lastPost = newPostsToShow.slice(-1)[0];
             return {
               posts: newPosts,
               postsToShow: newPostsToShow,
-              lastShownId: lastPostId ? lastPostId.postid : 0
+              lastShownId: lastPost ? lastPost.postid : 0
             }
           });
         }
