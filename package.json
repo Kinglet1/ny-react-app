@@ -4,11 +4,10 @@
   "private": true,
   "devDependencies": {
     "create-react-app-stylus": "^1.1.1",
-    "fake-ajax": "0.0.1",
-    "jquery-mockjax": "^2.2.1",
     "react-scripts": "0.8.4"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   },
