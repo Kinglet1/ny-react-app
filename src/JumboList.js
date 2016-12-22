@@ -9,10 +9,14 @@ class JumboList extends Component {
     });
     return (
       <div className="jumbo-list">
-        <button className="jumbo-list__button" onClick={ this.onNextButtonClick }>Next</button>
         <div className="jumbo-list__list">
           {list}
         </div>
+
+	    <div className="jumbo-list__tags"></div>
+	    <div className="jumbo-list__slogan"></div>
+	    <div className="jumbo-list__logo"></div>
+	    <div className="jumbo-list__pic"></div>
       </div>
     )
   }
