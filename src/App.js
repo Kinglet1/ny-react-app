@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
 import axios from 'axios';
+import Post from './models/Post';
 
 import JumboList from './JumboList';
 
@@ -9,7 +10,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: []
+      posts: [],
+      postsToShow: [],
+      lastShownId: 0,
     };
   }
 
@@ -33,6 +36,59 @@ class App extends Component {
     }
   }
 
+  mergePosts(oldPosts, newPosts) {
+    let posts = [];
+    Array.prototype.push.apply(posts,oldPosts);
+    newPosts.forEach(item => {
+      let post = new Post(item);
+      if((posts.filter(existPost => post.isSame(existPost))).length > 0){
+        return;
+      }
+      posts.push(post);
+    });
+
+    return posts.slice(-20);
+  }
+
+  /**
+   * todo: check post source to, not only id
+   */
+  getPostsToShow(posts, lastShownId, count = 3) {
+    let toShow = [];
+
+    const lastShownPosts = posts.filter(post => post.postid === lastShownId);
+    let lastShownPost;
+    if (lastShownPosts.length) {
+      lastShownPost = lastShownPosts[0];
+    } else {
+      lastShownPost = false;
+    }
+
+    if (lastShownId) {
+      let addMode = false;
+      posts.forEach(post => {
+        if (addMode === true && toShow.length < count) {
+          toShow.push(post)
+        }
+        if (!addMode && post.isSame(lastShownPost)) {
+          addMode = true;
+        }
+      });
+      // if we start add from the end, let fill from the beginning
+      if (toShow.length < count) {
+        posts.forEach(post => {
+          if (addMode === true && toShow.length < count) {
+            toShow.push(post)
+          }
+        })
+      }
+    } else {
+      toShow = posts.slice(0, count);
+    }
+
+    return toShow;
+  }
+
   startPolling() {
     const self = this;
     setTimeout(() => {
@@ -47,7 +103,16 @@ class App extends Component {
     axios.get(self.props.srcUrl)
       .then(response => {
         if (self.isMounted()) {
-          self.setState(response.data);
+          self.setState(prevState => {
+            const newPosts = self.mergePosts(prevState.posts, response.data.posts);
+            const newPostsToShow = self.getPostsToShow(newPosts, prevState.lastShownId);
+            const lastPostId = newPostsToShow.slice(-1);
+            return {
+              posts: newPosts,
+              postsToShow: newPostsToShow,
+              lastShownId: lastPostId ? lastPostId.postid : 0
+            }
+          });
         }
       })
       .catch(response => {
@@ -56,10 +121,9 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="App">
-        < JumboList posts={this.state.posts}/>
+        < JumboList posts={this.state.postsToShow}/>
       </div>
     );
   }
