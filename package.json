@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "create-react-app-stylus": "^1.1.1",
+    "react-addons-css-transition-group": "^15.4.1",
     "react-scripts": "0.8.4"
   },
   "dependencies": {
@@ -15,7 +16,8 @@
     "start": "react-scripts-with-stylus start",
     "build": "react-scripts-with-stylus build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build&&gh-pages -d build"
   },
-  "homepage": "http://kinglet1.github.io/ny-react-app/"
+  "homepage": "https://erliz.github.io/ny-react-app/"
 }
