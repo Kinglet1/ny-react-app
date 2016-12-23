@@ -12,10 +12,11 @@
 	padding: 2rem;
 	display: flex;
 	align-items: center;
+	overflow: hidden;
 }
 
 .jumbo__author-name {
-	font-size: 3rem;
+	font-size: 2rem;
 }
 
 .jumbo__author-photo {
@@ -40,4 +41,21 @@
 	width: 100%;
 	height: auto;
 	border: none;
+}
+
+.jumbo__author-name, .jumbo__post-text {
+	display: inline;
+}
+
+.jumbo__author-name {
+	margin-right: .3rem;
+}
+
+.jumbo__post-text {
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+
+.jumbo__author-text {
+	text-align: left;
 }
