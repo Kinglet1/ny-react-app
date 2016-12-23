@@ -34,11 +34,10 @@ class Jumbo extends Component {
 	    <ReactCSSTransitionGroup
 		    transitionName="example"
 		    transitionLeave={false}
-		    transitionLeaveTimeout={1500}
 		    transitionEnter={true}
 		    transitionEnterTimeout={1500}>
 
-		      <div className="jumbo">
+		      <div className="jumbo" key={ this.props.post.postid ? this.props.post.postid : `${this.props.post.source}_${this.props.post.date}` }>
 
 		        <div className="jumbo__post">
 		          <img className="jumbo__post-img" src={ this.props.post.image } alt=""/>
