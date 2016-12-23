@@ -4,7 +4,8 @@ import App from './App';
 import './index.css';
 
 const refreshSeconds = 15;
-const sourceUrl      = 'http://sionyx.ru/socialwall/posts.php';
+// const sourceUrl      = 'http://sionyx.ru/socialwall/posts.php';
+const sourceUrl      = 'https://goldie.fish/socialwall/posts.php';
 // const sourceUrl      = '/api.json';
 
 ReactDOM.render(
