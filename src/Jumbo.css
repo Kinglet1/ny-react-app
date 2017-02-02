@@ -6,16 +6,18 @@
 	height: 76.5rem;
 	width: 65rem;
 	box-shadow: 0 1px 3px rgba(0,0,0,.4);
+	overflow: hidden;
 }
 
 .jumbo__author {
 	padding: 2rem;
 	display: flex;
 	align-items: center;
+	overflow: hidden;
 }
 
 .jumbo__author-name {
-	font-size: 3rem;
+	font-size: 2rem;
 }
 
 .jumbo__author-photo {
@@ -24,6 +26,7 @@
 	border-radius: 4rem;
 	display: block;
 	margin-right: 2rem;
+	flex-shrink: 0;
 }
 
 .jumbo__post {
@@ -40,4 +43,51 @@
 	width: 100%;
 	height: auto;
 	border: none;
+}
+
+.jumbo__author-name, .jumbo__post-text {
+	display: inline;
+}
+
+.jumbo__author-name {
+	margin-right: .3rem;
+}
+
+.jumbo__post-text {
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+
+.jumbo__author-text {
+	text-align: left;
+}
+
+/**/
+
+.example-appear {
+	opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+	opacity: 1;
+	transition: opacity .5s ease-in;
+}
+/**/
+
+.example-enter {
+	opacity: 0;
+}
+
+.example-enter.example-enter-active {
+	opacity: 1;
+	transition: all 1500ms ease-in;
+}
+
+.example-leave {
+	opacity: 1;
+}
+
+.example-leave.example-leave-active {
+	opacity: 0;
+	transition: all 1500ms ease-in;
 }
