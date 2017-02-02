@@ -19,5 +19,5 @@
     "eject": "react-scripts eject",
     "deploy": "npm run build&&gh-pages -d build"
   },
-  "homepage": "http://kinglet1.github.io/ny-react-app/"
+  "homepage": "https://erliz.github.io/ny-react-app/"
 }

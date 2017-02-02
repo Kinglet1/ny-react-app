@@ -5,7 +5,7 @@ import Jumbo from './Jumbo';
 class JumboList extends Component {
   render() {
     const list = this.props.posts.map((item) => {
-      return < Jumbo post={item}/>
+      return < Jumbo key={item.postid} post={item}/>
     });
     return (
       <div className="jumbo-list">

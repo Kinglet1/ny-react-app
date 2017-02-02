@@ -47,7 +47,22 @@ class App extends Component {
       posts.push(post);
     });
 
-    return posts.slice(-20);
+    return posts.slice(this.props.poolSize * -1);
+  }
+
+  filterPosts(posts) {
+    let filteredPosts = [];
+    let cache = [];
+    posts.forEach(item => {
+      let post = new Post(item);
+      if(cache.indexOf(post.postid) !== -1){
+        return;
+      }
+      cache.push(post.postid);
+      filteredPosts.push(post);
+    });
+
+    return filteredPosts
   }
 
   /**
@@ -104,7 +119,7 @@ class App extends Component {
       .then(response => {
         if (self.isMounted()) {
           self.setState(prevState => {
-            const newPosts = self.mergePosts(prevState.posts, response.data.posts);
+            const newPosts = self.filterPosts(response.data.posts);
             const newPostsToShow = self.getPostsToShow(newPosts, prevState.lastShownId);
             const lastPost = newPostsToShow.slice(-1)[0];
             return {
