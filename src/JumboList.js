@@ -12,11 +12,6 @@ class JumboList extends Component {
         <div className="jumbo-list__list">
           {list}
         </div>
-
-	    <div className="jumbo-list__tags"></div>
-	    <div className="jumbo-list__slogan"></div>
-	    <div className="jumbo-list__logo"></div>
-	    <div className="jumbo-list__pic"></div>
       </div>
     )
   }

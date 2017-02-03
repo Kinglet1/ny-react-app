@@ -9,6 +9,11 @@
 	overflow: hidden;
 }
 
+.body_theme_orange .jumbo {
+	border: 3px solid;
+	border-radius: 20px
+}
+
 .jumbo__author {
 	padding: 2rem;
 	display: flex;

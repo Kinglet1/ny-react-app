@@ -9,13 +9,18 @@ html, body {
 }
 
 html {
-	font-size: 10px;
+	font-size: 8px;
 }
 
 body {
 	background: #fff url("img/ice.png") top center repeat-x;
 	position: relative;
 	font-family: Arial, Helvetica, sans-serif;
+}
+
+.body_theme_orange {
+	background: #fff url("img/orange-bg.jpg") top center repeat-x;
+	background-size: cover;
 }
 
 ul {

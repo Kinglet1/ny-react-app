@@ -18,6 +18,10 @@
 	padding: 0 9.5rem;
 }
 
+.body_theme_orange .jumbo-list__list {
+	top: 40%;
+}
+
 .jumbo-list__logo {
 	width: 58.2rem;
 	height: 9.4rem;
